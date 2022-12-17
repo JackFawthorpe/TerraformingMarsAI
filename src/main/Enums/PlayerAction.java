@@ -11,6 +11,6 @@ package main.Enums;
  * CR: Convert Resource
  * PA: Pass
  */
-public enum PlayerActions {
+public enum PlayerAction {
 
 }
