@@ -2,6 +2,7 @@ package main.Models;
 
 import main.Enums.PlayerActions;
 import main.Enums.Tags;
+import main.Exceptions.InvalidActionException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -83,6 +84,15 @@ public abstract class BaseCard {
      */
     public List<PlayerActions> getPotentialActions() {
         return new ArrayList<PlayerActions>();
+    }
+
+    /**
+     * Given the action to execute, the overriding function will run the logic for the action
+     * This function is meant to be overridden
+     * @param action The action to execute
+     */
+    public void runBlueAction(PlayerActions action) throws InvalidActionException {
+        throw new InvalidActionException(action + " cannot be thrown from " + this.getClass().getName());
     }
 
     /**
