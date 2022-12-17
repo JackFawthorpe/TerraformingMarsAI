@@ -1,7 +1,9 @@
 package main.Models;
 
+import main.Enums.PlayerActions;
 import main.Enums.Tags;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -23,12 +25,7 @@ public abstract class BaseCard {
      * If the card has an action
      * Must be overwritten within the child class
      */
-    private boolean action = false;
-
-    /**
-     * Victory point count for the card
-     */
-    private int victoryPoints = 0;
+    private boolean blueAction = false;
 
     /**
      * @return The title of the card
@@ -59,31 +56,33 @@ public abstract class BaseCard {
     }
 
     /**
-     * @return Boolean for if the card has an action
-     */
-    public final boolean hasAction() {
-        return this.action;
-    }
-
-    /**
-     * @return Boolean for if the action on this card can be used
-     */
-    public boolean canDoAction() {
-        return false;
-    }
-
-    /**
-     * Called from Card manager to run the cards immediate effect
-     */
-    abstract public void runImmediateEffect();
-
-    /**
-     * Returns the amount of victory points that are awarded for this card, default is returning integer
+     * Returns the amount of victory points that are awarded for this card, default is 0
      * but could be overwritten with function
      * @return Victory point count
      */
     public int getVictoryPointCount() {
-        return this.victoryPoints;
+        return 0;
+    }
+
+    /**
+     * @return Boolean for if the card has playable actions
+     */
+    public final boolean hasBlueAction() {
+        return this.blueAction;
+    }
+
+    /**
+     * @param blueAction sets blueAction to the new blueAction
+     */
+    protected final void setBlueAction(boolean blueAction) {
+        this.blueAction = blueAction;
+    }
+
+    /**
+     * @return Every possible action of this card given the current game state
+     */
+    public List<PlayerActions> getPotentialActions() {
+        return new ArrayList<PlayerActions>();
     }
 
     /**
@@ -91,5 +90,9 @@ public abstract class BaseCard {
      */
     abstract public boolean canPlayCard();
 
+    /**
+     * Called from Card manager to run the cards immediate effect
+     */
+    abstract public void runImmediateEffect();
 
 }
