@@ -1,6 +1,6 @@
 package main.Models;
 
-import main.Enums.PlayerActions;
+import main.Enums.PlayerAction;
 import main.Enums.Tags;
 import main.Exceptions.InvalidActionException;
 
@@ -101,8 +101,8 @@ public abstract class BaseCard {
     /**
      * @return Every possible action of this card given the current game state
      */
-    public List<PlayerActions> getPotentialActions() {
-        return new ArrayList<PlayerActions>();
+    public List<PlayerAction> getPotentialActions() {
+        return new ArrayList<PlayerAction>();
     }
 
     /**
@@ -110,7 +110,7 @@ public abstract class BaseCard {
      * This function is meant to be overridden
      * @param action The action to execute
      */
-    public void runBlueAction(PlayerActions action) throws InvalidActionException {
+    public void runBlueAction(PlayerAction action) throws InvalidActionException {
         throw new InvalidActionException(action + " cannot be thrown from " + this.getClass().getName());
     }
 
