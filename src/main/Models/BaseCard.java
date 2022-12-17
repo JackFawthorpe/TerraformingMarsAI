@@ -29,6 +29,25 @@ public abstract class BaseCard {
     private boolean blueAction = false;
 
     /**
+     * The amount of gold it costs to play this card
+     */
+    private int cost;
+
+    /**
+     * @return The cost of the card
+     */
+    public final int getCost() {
+        return this.cost;
+    }
+
+    /**
+     * @param cost The new cost of the card
+     */
+    protected final void setCost(int cost) {
+        this.cost = cost;
+    }
+
+    /**
      * @return The title of the card
      */
     public final String getTitle() {
