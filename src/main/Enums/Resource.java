@@ -1,6 +1,6 @@
 package main.Enums;
 
-public enum PlayerResource {
+public enum Resource {
     CREDITS,
     STEEL,
     TITANIUM,
