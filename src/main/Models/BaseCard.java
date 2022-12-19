@@ -34,6 +34,11 @@ public abstract class BaseCard {
     private int cost;
 
     /**
+     * Owner of Card
+     */
+    private Player owner;
+
+    /**
      * @return The cost of the card
      */
     public final int getCost() {
@@ -73,6 +78,20 @@ public abstract class BaseCard {
      */
     protected final void setTags(List<Tag> tags) {
         this.tags = tags;
+    }
+
+    /**
+     * @return Owner of this card
+     */
+    public final Player getOwner(){
+        return this.owner;
+    }
+
+    /**
+     * @param owner The new owner
+     */
+    public final void setOwner(Player owner){
+        this.owner = owner;
     }
 
     /**
