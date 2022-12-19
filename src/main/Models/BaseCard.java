@@ -38,9 +38,6 @@ public abstract class BaseCard {
      */
     private Player owner;
 
-    protected BaseCard() {
-    }
-
     /**
      * @return The cost of the card
      */
