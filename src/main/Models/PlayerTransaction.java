@@ -95,5 +95,9 @@ public class PlayerTransaction {
         for (int i = 0; i < resourceList.size(); i++) {
             targetPlayer.changeResourceCount(resourceList.get(i), changeCountList.get(i));
         }
+
+        for (Tag tag : tagList) {
+            targetPlayer.addTag(tag);
+        }
     }
 }

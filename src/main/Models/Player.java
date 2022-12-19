@@ -59,6 +59,14 @@ public class Player {
     }
 
     /**
+     * Adds a tag to the players inventory
+     * @param tag The tag to increment
+     */
+    public void addTag(Tag tag) {
+        tagCounts.replace(tag, tagCounts.get(tag) + 1);
+    }
+
+    /**
      * Changes how much of a given resource the player has
      * @param resource The resource to change
      * @param change The amount it should change by
@@ -66,6 +74,5 @@ public class Player {
     public void changeResourceCount(Resource resource, int change) {
         resourceCounts.replace(resource, resourceCounts.get(resource) + change);
     }
-
 
 }
