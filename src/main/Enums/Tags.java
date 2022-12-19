@@ -10,7 +10,7 @@ public enum Tags {
     SCIENCE,
     JOVIAN,
     EARTH,
-    PLANET,
+    PLANT,
     MICROBE,
     ANIMAL,
     CITY,

@@ -41,6 +41,7 @@ public class ResourceTransaction {
     /**
      * Constructor
      * @param targetPlayer The target for the resource change
+     * @param trigger String explaining what caused this resource transaction
      */
 
     public ResourceTransaction(Player targetPlayer, String trigger) {
