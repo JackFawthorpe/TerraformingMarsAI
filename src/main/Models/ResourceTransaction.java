@@ -1,9 +1,10 @@
 package main.Models;
 
-import main.Enums.PlayerResource;
+import main.Enums.Resource;
 import main.Exceptions.InvalidResourceTransactionException;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Class to manage the changing of player stats
@@ -13,12 +14,12 @@ public class ResourceTransaction {
     /**
      * By how much the stat should change
      */
-    private final ArrayList<Integer> changeSizeList;
+    private final List<Integer> changeCountList;
 
     /**
      * What resource should be changed
      */
-    private final ArrayList<PlayerResource> resourceList;
+    private final List<Resource> resourceList;
 
     /**
      * The player that is going to gain / lose given resource
@@ -40,28 +41,34 @@ public class ResourceTransaction {
     /**
      * Constructor
      * @param targetPlayer The target for the resource change
+     * @param trigger String explaining what caused this resource transaction
      */
 
     public ResourceTransaction(Player targetPlayer, String trigger) {
         this.targetPlayer = targetPlayer;
         this.trigger = trigger;
-        this.resourceList = new ArrayList<PlayerResource>();
-        this.changeSizeList = new ArrayList<Integer>();
+        this.resourceList = new ArrayList<Resource>();
+        this.changeCountList = new ArrayList<Integer>();
     }
 
     /**
      * Adds a resource to the transaction
      */
-    public void addResource(PlayerResource resource, int change) {
+    public void addResource(Resource resource, int change) {
         this.resourceList.add(resource);
-        this.changeSizeList.add(change);
+        this.changeCountList.add(change);
     }
 
     /**
      * @return Returns whether the resourceTransaction can execute
      */
     public boolean canExecute() {
-        return false;
+        for (int i = 0; i < resourceList.size(); i++) {
+            if (targetPlayer.getResourceCount(resourceList.get(i)) < changeCountList.get(i)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     /**
@@ -69,7 +76,11 @@ public class ResourceTransaction {
      */
     public void execute() throws InvalidResourceTransactionException {
         if (!canExecute()) {
-            throw new InvalidResourceTransactionException("Attempeted to execute when not executable");
+            throw new InvalidResourceTransactionException("Attempeted to execute when not executable, Suggest adding a canExecute call before this");
+        }
+
+        for (int i = 0; i < resourceList.size(); i++) {
+            targetPlayer.changeResourceCount(resourceList.get(i), changeCountList.get(i));
         }
     }
 }

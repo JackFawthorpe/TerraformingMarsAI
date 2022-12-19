@@ -1,85 +1,46 @@
 package main.Models;
 
+import java.util.HashMap;
+
+import main.Enums.Resource;
+
 /**
  * Model class to store player information
  */
 public class Player {
-    private int credits;
 
-    private int steel;
+    /**
+     * Contains key value pairs of the resources in the game and how much
+     * of each resource the player has
+     */
+    private HashMap<Resource, Integer> resourceCounts;
 
-    private int titanium;
-
-    private int plants;
-
-    private int energy;
-
-    private int heat;
-
-    private int terraformingRating;
-
-    private int goldProduction;
-
-    private int steelProduction;
-
-    private int titaniumProduction;
-
-    private int plantProduction;
-
-    private int energyProduction;
-
-    private int heatProduction;
-
-    public int getCredits() {
-        return credits;
+    /**
+     * Default constructor for player
+     */
+    public Player() {
+        Resource resources[] = Resource.values();
+        for (Resource resource: resources) {
+            resourceCounts.put(resource, 0);
+        }
     }
 
-    public int getSteel() {
-        return steel;
+    /**
+     * Access function to see how much of a resource the player has
+     * @param resource The resource thats being queried
+     * @return The count of said resource
+     */
+    public int getResourceCount(Resource resource) {
+        return resourceCounts.get(resource);
     }
 
-    public int getTitanium() {
-        return titanium;
-    }
-
-    public int getPlants() {
-        return plants;
-    }
-
-    public int getEnergy() {
-        return energy;
-    }
-
-    public int getHeat() {
-        return heat;
-    }
-
-    public int getTerraformingRating() {
-        return terraformingRating;
-    }
-
-    public int getGoldProduction() {
-        return goldProduction;
-    }
-
-    public int getSteelProduction() {
-        return steelProduction;
-    }
-
-    public int getTitaniumProduction() {
-        return titaniumProduction;
-    }
-
-    public int getPlantProduction() {
-        return plantProduction;
-    }
-
-    public int getEnergyProduction() {
-        return energyProduction;
-    }
-
-    public int getHeatProduction() {
-        return heatProduction;
+    /**
+     * Changes how much of a given resource the player has
+     * @param resource The resource to change
+     * @param change The amount it should change by
+     */
+    public void changeResourceCount(Resource resource, int change) {
+        resourceCounts.replace(resource, resourceCounts.get(resource) + change);
     }
 
 }
