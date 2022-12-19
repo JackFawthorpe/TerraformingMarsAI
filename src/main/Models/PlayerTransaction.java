@@ -1,6 +1,7 @@
 package main.Models;
 
 import main.Enums.Resource;
+import main.Enums.Tag;
 import main.Exceptions.InvalidResourceTransactionException;
 
 import java.util.ArrayList;
@@ -9,7 +10,7 @@ import java.util.List;
 /**
  * Class to manage the changing of player stats
  */
-public class ResourceTransaction {
+public class PlayerTransaction {
 
     /**
      * By how much the stat should change
@@ -20,6 +21,12 @@ public class ResourceTransaction {
      * What resource should be changed
      */
     private final List<Resource> resourceList;
+
+    /**
+     * List of tags to add in the transaction
+     */
+    private final List<Tag> tagList;
+
 
     /**
      * The player that is going to gain / lose given resource
@@ -44,11 +51,12 @@ public class ResourceTransaction {
      * @param trigger String explaining what caused this resource transaction
      */
 
-    public ResourceTransaction(Player targetPlayer, String trigger) {
+    public PlayerTransaction(Player targetPlayer, String trigger) {
         this.targetPlayer = targetPlayer;
         this.trigger = trigger;
         this.resourceList = new ArrayList<Resource>();
         this.changeCountList = new ArrayList<Integer>();
+        this.tagList = new ArrayList<Tag>();
     }
 
     /**
@@ -59,7 +67,12 @@ public class ResourceTransaction {
         this.changeCountList.add(change);
     }
 
+    public void addTag(Tag tag) {
+        tagList.add(tag);
+    }
+
     /**
+     * Checks that the player has the resources to lose before losing them
      * @return Returns whether the resourceTransaction can execute
      */
     public boolean canExecute() {
@@ -81,6 +94,10 @@ public class ResourceTransaction {
 
         for (int i = 0; i < resourceList.size(); i++) {
             targetPlayer.changeResourceCount(resourceList.get(i), changeCountList.get(i));
+        }
+
+        for (Tag tag : tagList) {
+            targetPlayer.addTag(tag);
         }
     }
 }

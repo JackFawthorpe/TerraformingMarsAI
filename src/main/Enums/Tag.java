@@ -3,7 +3,7 @@ package main.Enums;
 /**
  * The tags that are available for use in the game seen on cards
  */
-public enum Tags {
+public enum Tag {
     BUILDING,
     SPACE,
     POWER,

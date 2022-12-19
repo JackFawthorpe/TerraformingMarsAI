@@ -2,6 +2,7 @@ package main.Models;
 
 import java.util.HashMap;
 
+import main.Enums.Tag;
 import main.Enums.Resource;
 
 /**
@@ -16,12 +17,26 @@ public class Player {
     private HashMap<Resource, Integer> resourceCounts;
 
     /**
+     * Containts key value pairs of each of the tags that the player has played
+     */
+    private HashMap<Tag, Integer> tagCounts;
+
+    /**
      * Default constructor for player
      */
     public Player() {
+
+        resourceCounts = new HashMap<Resource, Integer>();
+        tagCounts = new HashMap<Tag, Integer>();
+
         Resource resources[] = Resource.values();
         for (Resource resource: resources) {
             resourceCounts.put(resource, 0);
+        }
+
+        Tag tags[] = Tag.values();
+        for (Tag tag: tags) {
+            tagCounts.put(tag, 0);
         }
     }
 
@@ -32,6 +47,23 @@ public class Player {
      */
     public int getResourceCount(Resource resource) {
         return resourceCounts.get(resource);
+    }
+
+    /**
+     * Gets the amount of tags of given type
+     * @param tag The tag thats being requested
+     * @param wildTagIncluded Whether the wild tag should also be considered
+     */
+    public int getTagCount(Tag tag, boolean wildTagIncluded) {
+        return wildTagIncluded && tag != Tag.WILD ? tagCounts.get(tag)  + tagCounts.get(Tag.WILD) : tagCounts.get(tag);
+    }
+
+    /**
+     * Adds a tag to the players inventory
+     * @param tag The tag to increment
+     */
+    public void addTag(Tag tag) {
+        tagCounts.replace(tag, tagCounts.get(tag) + 1);
     }
 
     /**

@@ -1,7 +1,7 @@
 package main.Models;
 
 import main.Enums.PlayerAction;
-import main.Enums.Tags;
+import main.Enums.Tag;
 import main.Exceptions.InvalidActionException;
 
 import java.util.ArrayList;
@@ -20,7 +20,7 @@ public abstract class BaseCard {
     /**
      * Tags on the card
      */
-    private List<Tags> tags;
+    private List<Tag> tags;
 
     /**
      * If the card has an action
@@ -64,14 +64,14 @@ public abstract class BaseCard {
     /**
      * @return List of tags that are on the card (Duplicates allowed)
      */
-    public final List<Tags> getTags() {
+    public final List<Tag> getTags() {
         return this.tags;
     }
 
     /**
      * @param tags Tags given by the child class
      */
-    protected final void setTags(List<Tags> tags) {
+    protected final void setTags(List<Tag> tags) {
         this.tags = tags;
     }
 
