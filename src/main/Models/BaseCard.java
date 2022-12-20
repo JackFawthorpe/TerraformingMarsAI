@@ -1,9 +1,11 @@
 package main.Models;
 
+import main.Enums.DLC;
 import main.Enums.PlayerAction;
 import main.Enums.Resource;
 import main.Enums.Tag;
 import main.Exceptions.InvalidActionException;
+import main.Exceptions.InvalidResourceTransactionException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,6 +40,11 @@ public abstract class BaseCard {
      * Owner of Card
      */
     protected Player owner;
+    
+    /**
+    * The DLC this card belongs to
+    */
+    protected DLC dlc;
 
     /**
      * @return The cost of the card
@@ -142,11 +149,12 @@ public abstract class BaseCard {
         return owner != null && cost <= owner.getResourceCount(Resource.CREDITS);
     };
 
-    abstract public void runImmediateEffect();
+    abstract public void runImmediateEffect() throws InvalidResourceTransactionException;
+    
     /**
      * Called from Card manager to run the cards immediate effect
      */
-    protected PlayerTransaction getImmediateEffectPT() {
+    private PlayerTransaction getImmediateEffectPT() {
         PlayerTransaction pt = new PlayerTransaction(owner, title);
         pt.addResource(Resource.CREDITS, cost);
         return pt;
