@@ -13,5 +13,6 @@ package main.Enums;
  */
 public enum PlayerAction {
     PC_BREATHING_FILTERS,
-    PC_SPONSORS
+    PC_SPONSORS,
+    PC_TITANIUM_MINES
 }
