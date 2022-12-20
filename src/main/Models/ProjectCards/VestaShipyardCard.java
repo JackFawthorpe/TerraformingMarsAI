@@ -8,27 +8,29 @@ import main.Managers.CardManager;
 import main.Models.BaseCard;
 import main.Models.PlayerTransaction;
 
+import java.lang.annotation.Documented;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class SponsorsCard extends BaseCard {
-    public SponsorsCard(CardManager cardManager) {
+public class VestaShipyardCard extends BaseCard {
+    public VestaShipyardCard(CardManager cardManager){
         this.cardManager = cardManager;
-        title = "Sponsors";
-        tags = new ArrayList<Tag>(Arrays.asList(Tag.EARTH));
-        cost = 6;
+        title = "Vesta Shipyard";
+        cost = 15;
         dlc = DLC.CORPORATE;
+        tags = new ArrayList<Tag>(Arrays.asList(Tag.JOVIAN, Tag.SPACE));
     }
 
     @Override
-    public boolean canPlayCard() {
-        return super.canPlayCard();
-    }
+    public boolean canPlayCard() { return super.canPlayCard(); }
+
+    @Override
+    public int getVictoryPointCount() { return 1; }
 
     @Override
     public void runImmediateEffect() throws InvalidPlayerTransactionException {
-        PlayerTransaction pt = getImmediateEffectPT();
-        pt.addResource(Resource.CREDIT_PRODUCTION, 2);
+        PlayerTransaction pt = runImmediateEffect();
+        pt.addResource(Resource.TITANIUM_PRODUCTION, 1);
         pt.execute();
     }
 }
