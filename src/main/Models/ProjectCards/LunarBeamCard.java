@@ -15,6 +15,7 @@ public class LunarBeamCard extends BaseCard {
     public LunarBeamCard(CardManager cardManager){
         this.cardManager = cardManager;
         title = "LunarBeamCard";
+        cost = 13;
         dlc = DLC.BASE;
         this.tags = new ArrayList<Tag>(Arrays.asList(Tag.EARTH, Tag.POWER));
     }

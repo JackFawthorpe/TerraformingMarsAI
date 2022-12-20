@@ -35,7 +35,7 @@ public abstract class BaseCard {
     /**
      * The amount of gold it costs to play this card
      */
-    protected int cost;
+    protected Integer cost;
 
     /**
      * Owner of Card
@@ -170,7 +170,7 @@ public abstract class BaseCard {
      */
     protected PlayerTransaction getImmediateEffectPT() {
         PlayerTransaction pt = new PlayerTransaction(owner, title);
-        pt.addResource(Resource.CREDITS, cost);
+        pt.addResource(Resource.CREDITS, -cost);
         return pt;
     }
 
