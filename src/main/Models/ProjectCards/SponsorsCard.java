@@ -4,18 +4,20 @@ import main.Enums.DLC;
 import main.Enums.Resource;
 import main.Enums.Tag;
 import main.Exceptions.InvalidPlayerTransactionException;
+import main.Managers.CardManager;
 import main.Models.BaseCard;
 import main.Models.PlayerTransaction;
 
 import java.util.ArrayList;
 
 public class SponsorsCard extends BaseCard {
-    public SponsorsCard() {
+    public SponsorsCard(CardManager cardManager) {
+        this.cardManager = cardManager;
         title = "Sponsors";
         ArrayList<Tag> tags = new ArrayList<Tag>();
         tags.add(Tag.EARTH);
         this.tags = tags;
-        dlc = DLC.CORPERATE;
+        dlc = DLC.CORPORATE;
     }
 
     @Override
