@@ -146,7 +146,7 @@ public abstract class BaseCard {
     /**
      * Called from Card manager to run the cards immediate effect
      */
-    private PlayerTransaction getImmediateEffectPT() {
+    protected PlayerTransaction getImmediateEffectPT() {
         PlayerTransaction pt = new PlayerTransaction(owner, title);
         pt.addResource(Resource.CREDITS, cost);
         return pt;
