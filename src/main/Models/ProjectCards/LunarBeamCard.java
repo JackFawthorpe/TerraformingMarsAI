@@ -4,6 +4,7 @@ import main.Enums.DLC;
 import main.Enums.Resource;
 import main.Enums.Tag;
 import main.Exceptions.InvalidPlayerTransactionException;
+import main.Managers.CardManager;
 import main.Models.BaseCard;
 import main.Models.PlayerTransaction;
 
@@ -11,13 +12,15 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class LunarBeamCard extends BaseCard {
-    public LunarBeamCard(){
+    public LunarBeamCard(CardManager cardManager){
+        this.cardManager = cardManager;
         title = "LunarBeamCard";
         dlc = DLC.BASE;
         this.tags = new ArrayList<Tag>(Arrays.asList(Tag.EARTH, Tag.POWER));
     }
 
 
+    @Override
     public boolean canPlayCard() {
         return super.canPlayCard();
     }

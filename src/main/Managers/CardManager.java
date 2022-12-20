@@ -4,7 +4,9 @@ import main.Enums.DLC;
 import main.Models.BaseCard;
 import main.Models.GlobalRequirements;
 import main.Models.ProjectCards.BreathingFiltersCard;
+import main.Models.ProjectCards.LunarBeamCard;
 import main.Models.ProjectCards.SponsorsCard;
+import main.Models.ProjectCards.TitaniumMineCard;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,10 +44,12 @@ public class CardManager {
         mainDeck = new ArrayList<BaseCard>();
         if (base) {
             mainDeck.add(new BreathingFiltersCard(this));
+            mainDeck.add(new LunarBeamCard(this));
         }
 
         if (corporate) {
             mainDeck.add(new SponsorsCard(this));
+            mainDeck.add(new TitaniumMineCard(this));
         }
 
         if (prelude) {

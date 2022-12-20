@@ -15,7 +15,7 @@ public class TitaniumMineCard extends BaseCard {
     public TitaniumMineCard(CardManager cardManager){
         this.cardManager = cardManager;
         title = "Titanium Mine";
-        dlc = DLC.CORPERATE;
+        dlc = DLC.CORPORATE;
         this.tags = new ArrayList<>(Arrays.asList(Tag.BUILDING));
     }
 
@@ -26,5 +26,6 @@ public class TitaniumMineCard extends BaseCard {
         pt.execute();
     }
 
-    public boolean canPlayCard() {return super.canPlayCard()};
+    @Override
+    public boolean canPlayCard() {return super.canPlayCard();}
 }
