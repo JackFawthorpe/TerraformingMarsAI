@@ -145,7 +145,7 @@ public abstract class BaseCard {
      * Basecard checks for ownership and that the owner has enough money
      * @return A boolean for if the card is currently available for the player to play
      */
-    public boolean canPlayCard() {
+    protected boolean canPlayCard() {
         return owner != null && cost <= owner.getResourceCount(Resource.CREDITS);
     };
 
