@@ -40,10 +40,10 @@ public abstract class BaseCard {
      * Owner of Card
      */
     protected Player owner;
-
+    
     /**
-     * DLC of Card
-     */
+    * The DLC this card belongs to
+    */
     protected DLC dlc;
 
     /**
@@ -150,10 +150,11 @@ public abstract class BaseCard {
     };
 
     abstract public void runImmediateEffect() throws InvalidResourceTransactionException;
+    
     /**
      * Called from Card manager to run the cards immediate effect
      */
-    protected PlayerTransaction getImmediateEffectPT() {
+    private PlayerTransaction getImmediateEffectPT() {
         PlayerTransaction pt = new PlayerTransaction(owner, title);
         pt.addResource(Resource.CREDITS, cost);
         return pt;
