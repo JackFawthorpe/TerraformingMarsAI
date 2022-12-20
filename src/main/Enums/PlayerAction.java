@@ -12,8 +12,12 @@ package main.Enums;
  * PA: Pass
  */
 public enum PlayerAction {
+    PC_ACQUIRED_COMPANY,
     PC_BREATHING_FILTERS,
+    PC_BRIBED_COMMITTEE,
+    PC_INVESTMENT_LOAN,
     PC_LUNAR_BEAM,
     PC_SPONSORS,
-    PC_TITANIUM_MINES
+    PC_TITANIUM_MINES,
+    PC_VESTA_SHIPYARD
 }
