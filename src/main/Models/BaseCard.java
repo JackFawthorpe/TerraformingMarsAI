@@ -1,8 +1,11 @@
 package main.Models;
 
+import main.Enums.DLC;
 import main.Enums.PlayerAction;
+import main.Enums.Resource;
 import main.Enums.Tag;
 import main.Exceptions.InvalidActionException;
+import main.Exceptions.InvalidResourceTransactionException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,28 +18,33 @@ public abstract class BaseCard {
     /**
      * Title of the card
      */
-    private String title;
+    protected String title;
 
     /**
      * Tags on the card
      */
-    private List<Tag> tags;
+    protected List<Tag> tags;
 
     /**
      * If the card has an action
      * Must be overwritten within the child class
      */
-    private boolean blueAction = false;
+    protected boolean blueAction = false;
 
     /**
      * The amount of gold it costs to play this card
      */
-    private int cost;
+    protected int cost;
 
     /**
      * Owner of Card
      */
-    private Player owner;
+    protected Player owner;
+
+    /**
+     * DLC of Card
+     */
+    protected DLC dlc;
 
     /**
      * @return The cost of the card
@@ -134,13 +142,22 @@ public abstract class BaseCard {
     }
 
     /**
+     * Basecard checks for ownership and that the owner has enough money
      * @return A boolean for if the card is currently available for the player to play
      */
-    abstract public boolean canPlayCard();
+    public boolean canPlayCard() {
+        return owner != null && cost <= owner.getResourceCount(Resource.CREDITS);
+    };
 
+    abstract public void runImmediateEffect() throws InvalidResourceTransactionException;
     /**
      * Called from Card manager to run the cards immediate effect
      */
-    abstract public void runImmediateEffect();
+    protected PlayerTransaction getImmediateEffectPT() {
+        PlayerTransaction pt = new PlayerTransaction(owner, title);
+        pt.addResource(Resource.CREDITS, cost);
+        return pt;
+    }
+
 
 }
