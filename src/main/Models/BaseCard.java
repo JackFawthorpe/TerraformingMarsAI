@@ -1,6 +1,7 @@
 package main.Models;
 
 import main.Enums.PlayerAction;
+import main.Enums.Resource;
 import main.Enums.Tag;
 import main.Exceptions.InvalidActionException;
 
@@ -134,9 +135,12 @@ public abstract class BaseCard {
     }
 
     /**
+     * Basecard checks for ownership and that the owner has enough money
      * @return A boolean for if the card is currently available for the player to play
      */
-    abstract public boolean canPlayCard();
+    public boolean canPlayCard() {
+        return owner != null && cost <= owner.getResourceCount(Resource.CREDITS);
+    };
 
     /**
      * Called from Card manager to run the cards immediate effect
