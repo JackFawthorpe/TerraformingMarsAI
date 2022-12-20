@@ -9,14 +9,14 @@ import main.Models.BaseCard;
 import main.Models.PlayerTransaction;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class SponsorsCard extends BaseCard {
     public SponsorsCard(CardManager cardManager) {
         this.cardManager = cardManager;
         title = "Sponsors";
-        ArrayList<Tag> tags = new ArrayList<Tag>();
-        tags.add(Tag.EARTH);
-        this.tags = tags;
+        tags = new ArrayList<Tag>(Arrays.asList(Tag.EARTH));
+        cost = 6;
         dlc = DLC.CORPORATE;
     }
 
