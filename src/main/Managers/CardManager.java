@@ -27,11 +27,20 @@ public class CardManager {
      */
     ArrayList<BaseCard> mainDeck;
 
+    public CardManager(GlobalRequirements gr) {
+        globalRequirementsRef = gr;
+        generateDeck(true, true, true);
+    }
+
     /**
      * @return Returns reference to the games global requirements
      */
     public GlobalRequirements getGlobalRequirementsRef() {
         return globalRequirementsRef;
+    }
+
+    public List<BaseCard> getMainDeck() {
+        return mainDeck;
     }
 
     /**

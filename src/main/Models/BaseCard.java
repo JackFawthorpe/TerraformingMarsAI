@@ -94,6 +94,14 @@ public abstract class BaseCard {
         this.tags = tags;
     }
 
+    public DLC getDLC() {
+        return dlc;
+    }
+
+    public CardManager getManager() {
+        return cardManager;
+    }
+
     /**
      * @return Owner of this card
      */
