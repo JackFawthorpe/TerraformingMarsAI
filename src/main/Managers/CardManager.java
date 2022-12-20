@@ -5,4 +5,5 @@ package main.Managers;
  * If we want to keep track of card usage then all usage of cards has to be directed through here
  */
 public class CardManager {
+
 }
