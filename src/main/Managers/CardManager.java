@@ -24,11 +24,20 @@ public class CardManager {
      */
     ArrayList<BaseCard> mainDeck;
 
+    public CardManager(GlobalRequirements gr) {
+        globalRequirementsRef = gr;
+        generateDeck(true, true, true);
+    }
+
     /**
      * @return Returns reference to the games global requirements
      */
     public GlobalRequirements getGlobalRequirementsRef() {
         return globalRequirementsRef;
+    }
+
+    public List<BaseCard> getMainDeck() {
+        return mainDeck;
     }
 
     /**
@@ -45,9 +54,12 @@ public class CardManager {
         }
 
         if (corporate) {
+            mainDeck.add(new AcquiredCompanyCard(this));
+            mainDeck.add(new BribedCommitteeCard(this));
             mainDeck.add(new InvestmentLoanCard(this));
             mainDeck.add(new SponsorsCard(this));
             mainDeck.add(new TitaniumMineCard(this));
+            mainDeck.add(new VestaShipyardCard(this));
         }
 
         if (prelude) {
