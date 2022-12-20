@@ -12,5 +12,6 @@ package main.Enums;
  * PA: Pass
  */
 public enum PlayerAction {
-    PC_Sponsors
+    PC_Sponsors,
+    PC_TITANIUM_MINES
 }
