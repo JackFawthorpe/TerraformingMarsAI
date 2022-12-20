@@ -15,28 +15,28 @@ public abstract class BaseCard {
     /**
      * Title of the card
      */
-    private String title;
+    protected String title;
 
     /**
      * Tags on the card
      */
-    private List<Tag> tags;
+    protected List<Tag> tags;
 
     /**
      * If the card has an action
      * Must be overwritten within the child class
      */
-    private boolean blueAction = false;
+    protected boolean blueAction = false;
 
     /**
      * The amount of gold it costs to play this card
      */
-    private int cost;
+    protected int cost;
 
     /**
      * Owner of Card
      */
-    private Player owner;
+    protected Player owner;
 
     /**
      * @return The cost of the card
