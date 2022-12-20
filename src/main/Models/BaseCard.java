@@ -142,9 +142,15 @@ public abstract class BaseCard {
         return owner != null && cost <= owner.getResourceCount(Resource.CREDITS);
     };
 
+    abstract public void runImmediateEffect();
     /**
      * Called from Card manager to run the cards immediate effect
      */
-    abstract public void runImmediateEffect();
+    private PlayerTransaction getImmediateEffectPT() {
+        PlayerTransaction pt = new PlayerTransaction(owner, title);
+        pt.addResource(Resource.CREDITS, cost);
+        return pt;
+    }
+
 
 }
