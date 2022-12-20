@@ -15,7 +15,7 @@ public class SponsorsCard extends BaseCard {
         ArrayList<Tag> tags = new ArrayList<Tag>();
         tags.add(Tag.EARTH);
         this.tags = tags;
-        dlc = DLC.CORPERATE;
+        dlc = DLC.CORPORATE;
     }
 
     @Override
