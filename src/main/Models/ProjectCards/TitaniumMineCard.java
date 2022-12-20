@@ -9,26 +9,22 @@ import main.Models.BaseCard;
 import main.Models.PlayerTransaction;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
-public class SponsorsCard extends BaseCard {
-    public SponsorsCard(CardManager cardManager) {
+public class TitaniumMineCard extends BaseCard {
+    public TitaniumMineCard(CardManager cardManager){
         this.cardManager = cardManager;
-        title = "Sponsors";
-        ArrayList<Tag> tags = new ArrayList<Tag>();
-        tags.add(Tag.EARTH);
-        this.tags = tags;
-        dlc = DLC.CORPORATE;
-    }
-
-    @Override
-    public boolean canPlayCard() {
-        return super.canPlayCard();
+        title = "Titanium Mine";
+        dlc = DLC.CORPERATE;
+        this.tags = new ArrayList<>(Arrays.asList(Tag.BUILDING));
     }
 
     @Override
     public void runImmediateEffect() throws InvalidPlayerTransactionException {
         PlayerTransaction pt = getImmediateEffectPT();
-        pt.addResource(Resource.CREDIT_PRODUCTION, 2);
+        pt.addResource(Resource.TITANIUM_PRODUCTION, 1);
         pt.execute();
     }
+
+    public boolean canPlayCard() {return super.canPlayCard()};
 }

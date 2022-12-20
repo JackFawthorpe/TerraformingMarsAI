@@ -6,6 +6,7 @@ import main.Enums.Resource;
 import main.Enums.Tag;
 import main.Exceptions.InvalidActionException;
 import main.Exceptions.InvalidPlayerTransactionException;
+import main.Managers.CardManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,6 +46,11 @@ public abstract class BaseCard {
     * The DLC this card belongs to
     */
     protected DLC dlc;
+
+    /**
+     * Reference to the card manager
+     */
+    protected CardManager cardManager;
 
     /**
      * @return The cost of the card
@@ -147,7 +153,7 @@ public abstract class BaseCard {
      */
     protected boolean canPlayCard() {
         return owner != null && cost <= owner.getResourceCount(Resource.CREDITS);
-    };
+    }
 
     abstract public void runImmediateEffect() throws InvalidPlayerTransactionException;
     

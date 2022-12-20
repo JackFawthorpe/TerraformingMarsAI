@@ -12,6 +12,8 @@ package main.Enums;
  * PA: Pass
  */
 public enum PlayerAction {
-    PC_LunarBeam,
-    PC_Sponsors
+    PC_BREATHING_FILTERS,
+    PC_LUNAR_BEAM,
+    PC_SPONSORS,
+    PC_TITANIUM_MINES
 }
