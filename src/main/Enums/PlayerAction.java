@@ -16,5 +16,6 @@ public enum PlayerAction {
     PC_BRIBED_COMMITTEE,
     PC_LUNAR_BEAM,
     PC_SPONSORS,
-    PC_TITANIUM_MINES
+    PC_TITANIUM_MINES,
+    PC_VESTA_SHIPYARD
 }
