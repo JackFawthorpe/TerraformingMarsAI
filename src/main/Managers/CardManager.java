@@ -3,10 +3,7 @@ package main.Managers;
 import main.Enums.DLC;
 import main.Models.BaseCard;
 import main.Models.GlobalRequirements;
-import main.Models.ProjectCards.BreathingFiltersCard;
-import main.Models.ProjectCards.LunarBeamCard;
-import main.Models.ProjectCards.SponsorsCard;
-import main.Models.ProjectCards.TitaniumMineCard;
+import main.Models.ProjectCards.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,6 +47,7 @@ public class CardManager {
         if (corporate) {
             mainDeck.add(new SponsorsCard(this));
             mainDeck.add(new TitaniumMineCard(this));
+            mainDeck.add(new BribedCommitteeCard(this));
         }
 
         if (prelude) {
