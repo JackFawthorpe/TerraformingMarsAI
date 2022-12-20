@@ -56,6 +56,7 @@ public class CardManager {
         if (corporate) {
             mainDeck.add(new AcquiredCompanyCard(this));
             mainDeck.add(new BribedCommitteeCard(this));
+            mainDeck.add(new InvestmentLoanCard(this));
             mainDeck.add(new SponsorsCard(this));
             mainDeck.add(new TitaniumMineCard(this));
             mainDeck.add(new VestaShipyardCard(this));
