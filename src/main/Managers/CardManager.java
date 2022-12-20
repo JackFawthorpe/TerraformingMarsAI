@@ -2,6 +2,8 @@ package main.Managers;
 
 import main.Enums.DLC;
 import main.Models.BaseCard;
+import main.Models.GlobalRequirements;
+import main.Models.ProjectCards.BreathingFiltersCard;
 import main.Models.ProjectCards.SponsorsCard;
 
 import java.util.ArrayList;
@@ -13,7 +15,22 @@ import java.util.List;
  */
 public class CardManager {
 
+    /**
+     * This games global requirements
+     */
+    GlobalRequirements globalRequirementsRef;
+
+    /**
+     * The deck of cards where cards are drawn from
+     */
     ArrayList<BaseCard> mainDeck;
+
+    /**
+     * @return Returns reference to the games global requirements
+     */
+    public GlobalRequirements getGlobalRequirementsRef() {
+        return globalRequirementsRef;
+    }
 
     /**
      * Generates the deck for play
@@ -24,11 +41,11 @@ public class CardManager {
     private void generateDeck(boolean base, boolean corporate, boolean prelude) {
         mainDeck = new ArrayList<BaseCard>();
         if (base) {
-
+            mainDeck.add(new BreathingFiltersCard(this));
         }
 
         if (corporate) {
-            mainDeck.add(new SponsorsCard());
+            mainDeck.add(new SponsorsCard(this));
         }
 
         if (prelude) {
