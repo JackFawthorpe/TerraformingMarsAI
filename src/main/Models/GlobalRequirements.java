@@ -36,9 +36,10 @@ public class GlobalRequirements {
      * Increments the oxygen
      * If Oxygen increments to 8 it also causes a temp increase
      * @param player The player that triggered the increment
+     * @return If the change was a success
      */
-    public void incrementOxygen(Player player) {
-        if (oxygen == 14) return; // At max
+    public boolean incrementOxygen(Player player) {
+        if (oxygen == 14) return false; // At max
         oxygen++;
         PlayerTransaction pt = new PlayerTransaction(player, "Incremented Oxygen");
         pt.addResource(Resource.TERRAFORMING_RATING, 1);
@@ -47,13 +48,20 @@ public class GlobalRequirements {
         }
         try {
             pt.execute();
+            return true;
         } catch (Exception e) {
             e.printStackTrace();
+            return false;
         }
     }
 
-    public void incrementTemperature(Player player) {
-        if (temperature == 8) return;
+    /**
+     * Increases the temperature of mars
+     * @param player The player that triggered the change
+     * @return If the change was a success
+     */
+    public boolean incrementTemperature(Player player) {
+        if (temperature == 8) return false;
         temperature += 2;
         PlayerTransaction pt = new PlayerTransaction(player, "Incremented Temperature");
         pt.addResource(Resource.TERRAFORMING_RATING, 1);
@@ -66,8 +74,10 @@ public class GlobalRequirements {
         }
         try {
             pt.execute();
+            return true;
         } catch (Exception e) {
             e.printStackTrace();
+            return false;
         }
     }
 }

@@ -2,7 +2,7 @@ package main.Models;
 
 import main.Enums.Resource;
 import main.Enums.Tag;
-import main.Exceptions.InvalidResourceTransactionException;
+import main.Exceptions.InvalidPlayerTransactionException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -77,7 +77,7 @@ public class PlayerTransaction {
      */
     public boolean canExecute() {
         for (int i = 0; i < resourceList.size(); i++) {
-            if (targetPlayer.getResourceCount(resourceList.get(i)) < changeCountList.get(i)) {
+            if (resourceList.get(i) != Resource.CREDIT_PRODUCTION && targetPlayer.getResourceCount(resourceList.get(i)) + changeCountList.get(i) < 0) {
                 return false;
             }
         }
@@ -87,9 +87,9 @@ public class PlayerTransaction {
     /**
      * Runs the transaction
      */
-    public void execute() throws InvalidResourceTransactionException {
+    public void execute() throws InvalidPlayerTransactionException {
         if (!canExecute()) {
-            throw new InvalidResourceTransactionException("Attempeted to execute when not executable, Suggest adding a canExecute call before this");
+            throw new InvalidPlayerTransactionException("Attempeted to execute when not executable, Suggest adding a canExecute call before this");
         }
 
         for (int i = 0; i < resourceList.size(); i++) {
