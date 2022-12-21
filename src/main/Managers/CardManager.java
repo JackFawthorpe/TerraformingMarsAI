@@ -1,6 +1,5 @@
 package main.Managers;
 
-import main.Enums.DLC;
 import main.Models.BaseCard;
 import main.Models.GlobalRequirements;
 import main.Models.ProjectCards.*;
@@ -56,6 +55,7 @@ public class CardManager {
         if (corporate) {
             mainDeck.add(new AcquiredCompanyCard(this));
             mainDeck.add(new BribedCommitteeCard(this));
+            mainDeck.add(new FuelFactoryCard(this));
             mainDeck.add(new InvestmentLoanCard(this));
             mainDeck.add(new SponsorsCard(this));
             mainDeck.add(new TitaniumMineCard(this));
