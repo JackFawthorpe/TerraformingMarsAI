@@ -59,6 +59,7 @@ public class CardManager {
             mainDeck.add(new InvestmentLoanCard(this));
             mainDeck.add(new SponsorsCard(this));
             mainDeck.add(new TitaniumMineCard(this));
+            mainDeck.add(new TransNeptuneProbe(this));
             mainDeck.add(new VestaShipyardCard(this));
         }
 

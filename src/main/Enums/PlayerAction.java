@@ -19,5 +19,6 @@ public enum PlayerAction {
     PC_LUNAR_BEAM,
     PC_SPONSORS,
     PC_TITANIUM_MINES,
+    PC_TRANS_NEPTUNE_PROBE,
     PC_VESTA_SHIPYARD
 }
