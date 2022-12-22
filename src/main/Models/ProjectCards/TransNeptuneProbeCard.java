@@ -15,7 +15,7 @@ public class TransNeptuneProbeCard extends BaseCard {
         title = "Trans-Neptune Probe";
         cost = 6;
         dlc = DLC.CORPORATE;
-        tags = new ArrayList<Tag>(Arrays.asList(Tag.SCIENCE, Tag.SPACE);
+        tags = new ArrayList<Tag>(Arrays.asList(Tag.SCIENCE, Tag.SPACE));
     }
 
     @Override

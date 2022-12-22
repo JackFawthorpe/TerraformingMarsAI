@@ -21,11 +21,11 @@ public class CardManager {
     /**
      * The deck of cards where cards are drawn from
      */
-    ArrayList<BaseCard> mainDeck;
+    List<BaseCard> mainDeck;
 
     public CardManager(GlobalRequirements gr) {
         globalRequirementsRef = gr;
-        generateDeck(true, true, true);
+        mainDeck = generateDeck(true, true, true, this);
     }
 
     /**
@@ -45,28 +45,30 @@ public class CardManager {
      * @param corporate If Corperate Cards are enabled
      * @param prelude If Prelude cards are enabled
      */
-    private void generateDeck(boolean base, boolean corporate, boolean prelude) {
-        mainDeck = new ArrayList<BaseCard>();
+    public static List<BaseCard> generateDeck(boolean base, boolean corporate, boolean prelude, CardManager manager) {
+        List<BaseCard> deck = new ArrayList<BaseCard>();
         if (base) {
-            mainDeck.add(new BreathingFiltersCard(this));
-            mainDeck.add(new LunarBeamCard(this));
+            deck.add(new BreathingFiltersCard(manager));
+            deck.add(new LunarBeamCard(manager));
         }
 
         if (corporate) {
-            mainDeck.add(new AcquiredCompanyCard(this));
-            mainDeck.add(new BribedCommitteeCard(this));
-            mainDeck.add(new FuelFactoryCard(this));
-            mainDeck.add(new InvestmentLoanCard(this));
-            mainDeck.add(new MineralDepositCard(this));
-            mainDeck.add(new SponsorsCard(this));
-            mainDeck.add(new TitaniumMineCard(this));
-            mainDeck.add(new TransNeptuneProbeCard(this));
-            mainDeck.add(new VestaShipyardCard(this));
+            deck.add(new AcquiredCompanyCard(manager));
+            deck.add(new BribedCommitteeCard(manager));
+            deck.add(new FuelFactoryCard(manager));
+            deck.add(new InvestmentLoanCard(manager));
+            deck.add(new MineralDepositCard(manager));
+            deck.add(new SponsorsCard(manager));
+            deck.add(new TitaniumMineCard(manager));
+            deck.add(new TransNeptuneProbeCard(manager));
+            deck.add(new VestaShipyardCard(manager));
         }
 
         if (prelude) {
 
         }
+
+        return deck;
     }
 
 }

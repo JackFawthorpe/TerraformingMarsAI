@@ -1,11 +1,13 @@
 package test.Models;
 
+import main.Enums.DLC;
 import main.Enums.Resource;
 import main.Enums.Tag;
 import main.Managers.CardManager;
 import main.Models.BaseCard;
 import main.Models.GlobalRequirements;
 import main.Models.Player;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 import java.util.List;
@@ -16,8 +18,7 @@ public class ProjectCardsTest {
 
     private static List<BaseCard> generateAllCards() {
         CardManager cm = new CardManager(new GlobalRequirements());
-        List<BaseCard> mainDeck = cm.getMainDeck();
-        return mainDeck;
+        return cm.getMainDeck();
     }
 
     @ParameterizedTest
@@ -69,5 +70,37 @@ public class ProjectCardsTest {
             card.runImmediateEffect();
             assertEquals(predictedCost, player.getResourceCount(Resource.CREDITS));
         } catch (Exception e) {fail();}
+    }
+
+    @Test
+    void checkAllSubDecksMatchCards() {
+
+        CardManager cm = new CardManager(new GlobalRequirements());
+
+        List<BaseCard> mainDeck = generateAllCards();
+        List<BaseCard> baseDeck = CardManager.generateDeck(true, false, false, cm);
+        List<BaseCard> corporateDeck = CardManager.generateDeck(false, true, false, cm);
+        List<BaseCard> preludeDeck = CardManager.generateDeck(false, false, true, cm);
+
+        int baseIndex = 0;
+        int corpIndex = 0;
+        int preludeIndex = 0;
+
+        for (BaseCard card : mainDeck) {
+            switch (card.getDLC()) {
+                case BASE:
+                    assertEquals(card.getTitle(), baseDeck.get(baseIndex).getTitle());
+                    baseIndex++;
+                    break;
+                case CORPORATE:
+                    assertEquals(card.getTitle(), corporateDeck.get(corpIndex).getTitle());
+                    corpIndex++;
+                    break;
+                case PRELUDE:
+                    assertEquals(card.getTitle(), preludeDeck.get(preludeIndex).getTitle());
+                    preludeIndex++;
+                    break;
+            }
+        }
     }
 }

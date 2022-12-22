@@ -29,7 +29,7 @@ public class VestaShipyardCard extends BaseCard {
 
     @Override
     public void runImmediateEffect() throws InvalidPlayerTransactionException {
-        PlayerTransaction pt = runImmediateEffect();
+        PlayerTransaction pt = getImmediateEffectPT();
         pt.addResource(Resource.TITANIUM_PRODUCTION, 1);
         pt.execute();
     }
