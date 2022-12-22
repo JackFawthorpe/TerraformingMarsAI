@@ -20,5 +20,6 @@ public enum PlayerAction {
     PC_MINERAL_DEPOSIT,
     PC_SPONSORS,
     PC_TITANIUM_MINES,
+    PC_TRANS_NEPTUNE_PROBE,
     PC_VESTA_SHIPYARD
 }

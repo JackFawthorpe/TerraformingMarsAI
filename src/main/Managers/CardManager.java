@@ -1,6 +1,5 @@
 package main.Managers;
 
-import main.Enums.DLC;
 import main.Models.BaseCard;
 import main.Models.GlobalRequirements;
 import main.Models.ProjectCards.*;
@@ -60,6 +59,7 @@ public class CardManager {
             mainDeck.add(new MineralDepositCard(this));
             mainDeck.add(new SponsorsCard(this));
             mainDeck.add(new TitaniumMineCard(this));
+            mainDeck.add(new TransNeptuneProbeCard(this));
             mainDeck.add(new VestaShipyardCard(this));
         }
 
