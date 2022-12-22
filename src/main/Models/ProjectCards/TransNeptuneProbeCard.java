@@ -1,18 +1,16 @@
 package main.Models.ProjectCards;
 
 import main.Enums.DLC;
-import main.Enums.Resource;
 import main.Enums.Tag;
 import main.Exceptions.InvalidPlayerTransactionException;
 import main.Managers.CardManager;
 import main.Models.BaseCard;
-import main.Models.PlayerTransaction;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class TransNeptuneProbe extends BaseCard {
-    public TransNeptuneProbe(CardManager cardManager){
+public class TransNeptuneProbeCard extends BaseCard {
+    public TransNeptuneProbeCard(CardManager cardManager){
         this.cardManager = cardManager;
         title = "Trans-Neptune Probe";
         cost = 6;
@@ -28,6 +26,6 @@ public class TransNeptuneProbe extends BaseCard {
 
     @Override
     public void runImmediateEffect() throws InvalidPlayerTransactionException {
-
+        super.getImmediateEffectPT().execute();
     }
 }
