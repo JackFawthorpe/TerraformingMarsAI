@@ -1,13 +1,11 @@
 package test.Models;
 
-import main.Enums.DLC;
 import main.Enums.Resource;
 import main.Enums.Tag;
 import main.Managers.CardManager;
 import main.Models.BaseCard;
 import main.Models.GlobalRequirements;
 import main.Models.Player;
-import main.Models.ProjectCards.InvestmentLoanCard;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
