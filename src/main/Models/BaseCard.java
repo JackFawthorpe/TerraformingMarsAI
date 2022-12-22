@@ -10,6 +10,7 @@ import main.Managers.CardManager;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Base card for all project cards
@@ -174,5 +175,13 @@ public abstract class BaseCard {
         return pt;
     }
 
-
+    @Override
+    public boolean equals(Object o) {
+        if (o == this) {return true;}
+        try {
+            return this.title.equals(((BaseCard) o).getTitle());
+        } catch (Exception e) {
+            return false;
+        }
+    }
 }

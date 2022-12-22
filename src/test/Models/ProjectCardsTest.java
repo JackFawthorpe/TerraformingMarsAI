@@ -7,10 +7,14 @@ import main.Managers.CardManager;
 import main.Models.BaseCard;
 import main.Models.GlobalRequirements;
 import main.Models.Player;
+import main.Models.ProjectCards.InvestmentLoanCard;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -64,11 +68,16 @@ public class ProjectCardsTest {
             }
         }
 
+        Set<String> exceptions = new HashSet<>();
+        exceptions.add("Investment Loan");
+
         int predictedCost = player.getResourceCount(Resource.CREDITS) - card.getCost();
         card.setOwner(player);
         try {
             card.runImmediateEffect();
-            assertEquals(predictedCost, player.getResourceCount(Resource.CREDITS));
+            if (!exceptions.contains(card.getTitle())) {
+                assertEquals(predictedCost, player.getResourceCount(Resource.CREDITS));
+            }
         } catch (Exception e) {fail();}
     }
 
