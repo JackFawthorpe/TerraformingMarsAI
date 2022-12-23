@@ -79,6 +79,32 @@ public class ProjectCardsTest {
         } catch (Exception e) {fail();}
     }
 
+    @ParameterizedTest
+    @MethodSource ("generateAllCards")
+    void allCardsGainTheRightAmountOfTags(BaseCard card) {
+        int tagCount = card.getTags().size();
+        Player player = new Player();
+        for (Resource resource : Resource.values()) {
+            player.changeResourceCount(resource, 100);
+        }
+        for (Tag tag : Tag.values()) {
+            for (int i = 0; i < 10; i++) {
+                player.addTag(tag);
+            }
+        }
+        int predictedTagCount = Tag.values().length * 10 + tagCount;
+        card.setOwner(player);
+        try {
+            card.runImmediateEffect();
+            int exactCount = 0;
+            for (Tag tag : Tag.values()) {
+                exactCount += player.getTagCount(tag, false);
+            }
+            assertEquals(predictedTagCount, exactCount);
+        } catch (Exception e) {fail();}
+
+    }
+
     @Test
     void checkAllSubDecksMatchCards() {
 
