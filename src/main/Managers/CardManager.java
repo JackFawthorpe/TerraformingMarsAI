@@ -49,7 +49,9 @@ public class CardManager {
         List<BaseCard> deck = new ArrayList<BaseCard>();
         if (base) {
             deck.add(new BreathingFiltersCard(manager));
+            deck.add(new FarmingCard(manager));
             deck.add(new LunarBeamCard(manager));
+            deck.add(new SolarPowerCard(manager));
         }
 
         if (corporate) {
