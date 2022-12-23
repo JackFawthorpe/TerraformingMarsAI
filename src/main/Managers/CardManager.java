@@ -49,13 +49,16 @@ public class CardManager {
         List<BaseCard> deck = new ArrayList<BaseCard>();
         if (base) {
             deck.add(new BreathingFiltersCard(manager));
+            deck.add(new FarmingCard(manager));
             deck.add(new FoodFactoryCard(manager));
             deck.add(new LunarBeamCard(manager));
+            deck.add(new SolarPowerCard(manager));
         }
 
         if (corporate) {
             deck.add(new AcquiredCompanyCard(manager));
             deck.add(new BribedCommitteeCard(manager));
+            deck.add(new BuildingIndustriesCard(manager));
             deck.add(new FuelFactoryCard(manager));
             deck.add(new InvestmentLoanCard(manager));
             deck.add(new MineralDepositCard(manager));
