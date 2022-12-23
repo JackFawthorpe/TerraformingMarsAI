@@ -57,6 +57,7 @@ public class CardManager {
         if (corporate) {
             deck.add(new AcquiredCompanyCard(manager));
             deck.add(new BribedCommitteeCard(manager));
+            deck.add(new BuildingIndustriesCard(manager));
             deck.add(new FuelFactoryCard(manager));
             deck.add(new InvestmentLoanCard(manager));
             deck.add(new MineralDepositCard(manager));
