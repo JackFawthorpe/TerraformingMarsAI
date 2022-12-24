@@ -20,6 +20,7 @@ public enum PlayerAction {
     PC_FARMING,
     PC_FOOD_FACTORY,
     PC_FUEL_FACTORY,
+    PC_GENE_REPAIR,
     PC_GRASS,
     PC_IMPORT_OF_ADVANCED_GHG,
     PC_INVESTMENT_LOAN,
