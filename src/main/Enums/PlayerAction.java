@@ -25,6 +25,7 @@ public enum PlayerAction {
     PC_INVESTMENT_LOAN,
     PC_LUNAR_BEAM,
     PC_MINERAL_DEPOSIT,
+    PC_POWER_GIRD,
     PC_SOLAR_POWER,
     PC_SOLETTA,
     PC_SPONSORS,
