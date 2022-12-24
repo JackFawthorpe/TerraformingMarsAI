@@ -23,6 +23,7 @@ public enum PlayerAction {
     PC_FUEL_FACTORY,
     PC_GRASS,
     PC_IMPORT_OF_ADVANCED_GHG,
+    PC_INSECTS,
     PC_INVESTMENT_LOAN,
     PC_LUNAR_BEAM,
     PC_MEDICAL_LAB,
