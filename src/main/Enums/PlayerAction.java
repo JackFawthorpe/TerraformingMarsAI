@@ -26,6 +26,7 @@ public enum PlayerAction {
     PC_LUNAR_BEAM,
     PC_MINERAL_DEPOSIT,
     PC_MIRANDA_RESORT,
+    PC_POWER_GIRD,
     PC_SOLAR_POWER,
     PC_SOLETTA,
     PC_SPONSORS,
