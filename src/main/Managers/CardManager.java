@@ -55,6 +55,7 @@ public class CardManager {
             deck.add(new LunarBeamCard(manager));
             deck.add(new SolarPowerCard(manager));
             deck.add(new SolettaCard(manager));
+            deck.add(new StripMineCard(manager));
         }
 
         if (corporate) {
