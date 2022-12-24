@@ -50,6 +50,7 @@ public class CardManager {
         if (base) {
             deck.add(new AsteroidMiningCard(manager));
             deck.add(new BreathingFiltersCard(manager));
+            deck.add(new DesignedMicroorganismsCard(manager));
             deck.add(new FarmingCard(manager));
             deck.add(new FoodFactoryCard(manager));
             deck.add(new GrassCard(manager));
