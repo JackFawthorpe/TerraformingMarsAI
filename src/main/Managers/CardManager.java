@@ -70,6 +70,7 @@ public class CardManager {
             deck.add(new MedicalLabCard(manager));
             deck.add(new MineralDepositCard(manager));
             deck.add(new MirandaResortCard(manager));
+            deck.add(new SatellitesCard(manager));
             deck.add(new SponsorsCard(manager));
             deck.add(new TitaniumMineCard(manager));
             deck.add(new TransNeptuneProbeCard(manager));
