@@ -54,6 +54,7 @@ public class CardManager {
             deck.add(new FoodFactoryCard(manager));
             deck.add(new LunarBeamCard(manager));
             deck.add(new SolarPowerCard(manager));
+            deck.add(new SolettaCard(manager));
         }
 
         if (corporate) {
