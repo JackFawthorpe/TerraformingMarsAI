@@ -24,6 +24,7 @@ public enum PlayerAction {
     PC_GRASS,
     PC_IMPORT_OF_ADVANCED_GHG,
     PC_INVESTMENT_LOAN,
+    PC_LICHEN,
     PC_LUNAR_BEAM,
     PC_MEDICAL_LAB,
     PC_MINERAL_DEPOSIT,
