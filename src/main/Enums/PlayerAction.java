@@ -35,5 +35,6 @@ public enum PlayerAction {
     PC_STRIP_MINE,
     PC_TITANIUM_MINES,
     PC_TRANS_NEPTUNE_PROBE,
-    PC_VESTA_SHIPYARD
+    PC_VESTA_SHIPYARD,
+    PC_WORMS
 }

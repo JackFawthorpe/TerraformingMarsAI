@@ -59,6 +59,7 @@ public class CardManager {
             deck.add(new SolarPowerCard(manager));
             deck.add(new SolettaCard(manager));
             deck.add(new StripMineCard(manager));
+            deck.add(new WormsCard(manager));
         }
 
         if (corporate) {
