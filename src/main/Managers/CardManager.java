@@ -49,6 +49,7 @@ public class CardManager {
         List<BaseCard> deck = new ArrayList<BaseCard>();
         if (base) {
             deck.add(new BreathingFiltersCard(manager));
+            deck.add(new ImportOfAdvancedGHGCard(manager));
             deck.add(new LunarBeamCard(manager));
         }
 
