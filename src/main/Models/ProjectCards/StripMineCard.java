@@ -31,5 +31,6 @@ public class StripMineCard extends BaseCard {
         pt.addResource(Resource.TITANIUM_PRODUCTION, 1);
         cardManager.getGlobalRequirementsRef().incrementOxygen(owner);
         cardManager.getGlobalRequirementsRef().incrementOxygen(owner);
+        pt.execute();
     }
 }
