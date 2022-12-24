@@ -72,6 +72,7 @@ public class CardManager {
             deck.add(new BuildingIndustriesCard(manager));
             deck.add(new CartelCard(manager));
             deck.add(new FuelFactoryCard(manager));
+            deck.add(new GeneRepairCard(manager));
             deck.add(new InvestmentLoanCard(manager));
             deck.add(new MedicalLabCard(manager));
             deck.add(new MineralDepositCard(manager));
