@@ -23,9 +23,9 @@ public class CardManager {
      */
     List<BaseCard> mainDeck;
 
-    public CardManager(GlobalRequirements gr) {
+    public CardManager(GlobalRequirements gr, boolean base, boolean corp, boolean prel) {
         globalRequirementsRef = gr;
-        mainDeck = generateDeck(true, true, true, this);
+        mainDeck = generateDeck(base, corp, prel, this);
     }
 
     /**
@@ -55,17 +55,21 @@ public class CardManager {
             deck.add(new FoodFactoryCard(manager));
             deck.add(new GrassCard(manager));
             deck.add(new ImportOfAdvancedGHGCard(manager));
+            deck.add(new InsectsCard(manager));
+            deck.add(new LichenCard(manager));
             deck.add(new LunarBeamCard(manager));
             deck.add(new PowerGridCard(manager));
             deck.add(new SolarPowerCard(manager));
             deck.add(new SolettaCard(manager));
             deck.add(new StripMineCard(manager));
+            deck.add(new TectonicStressPowerCard(manager));
         }
 
         if (corporate) {
             deck.add(new AcquiredCompanyCard(manager));
             deck.add(new BribedCommitteeCard(manager));
             deck.add(new BuildingIndustriesCard(manager));
+            deck.add(new CartelCard(manager));
             deck.add(new FuelFactoryCard(manager));
             deck.add(new InvestmentLoanCard(manager));
             deck.add(new MedicalLabCard(manager));
