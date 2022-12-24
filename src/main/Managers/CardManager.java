@@ -56,6 +56,7 @@ public class CardManager {
             deck.add(new ImportOfAdvancedGHGCard(manager));
             deck.add(new LunarBeamCard(manager));
             deck.add(new PowerGridCard(manager));
+            deck.add(new PowerPlantCard(manager));
             deck.add(new SolarPowerCard(manager));
             deck.add(new SolettaCard(manager));
             deck.add(new StripMineCard(manager));
