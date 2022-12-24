@@ -172,6 +172,9 @@ public abstract class BaseCard {
     protected PlayerTransaction getImmediateEffectPT() {
         PlayerTransaction pt = new PlayerTransaction(owner, title);
         pt.addResource(Resource.CREDITS, -cost);
+        for (Tag tag : tags) {
+            pt.addTag(tag);
+        }
         return pt;
     }
 
