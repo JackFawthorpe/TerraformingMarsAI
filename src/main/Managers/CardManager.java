@@ -54,6 +54,7 @@ public class CardManager {
             deck.add(new FoodFactoryCard(manager));
             deck.add(new GrassCard(manager));
             deck.add(new ImportOfAdvancedGHGCard(manager));
+            deck.add(new LichenCard(manager));
             deck.add(new LunarBeamCard(manager));
             deck.add(new PowerGridCard(manager));
             deck.add(new SolarPowerCard(manager));
