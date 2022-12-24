@@ -4,6 +4,9 @@ import java.util.HashMap;
 
 import main.Enums.Tag;
 import main.Enums.Resource;
+import main.PlayerControl.AIController;
+import main.PlayerControl.HumanController;
+import main.PlayerControl.PlayerController;
 
 /**
  * Model class to store player information
@@ -21,10 +24,18 @@ public class Player {
      */
     private HashMap<Tag, Integer> tagCounts;
 
+    PlayerController controller;
+
     /**
      * Default constructor for player
      */
-    public Player() {
+    public Player(boolean isAI) {
+
+        if (isAI) {
+            controller = new AIController();
+        } else {
+            controller = new HumanController();
+        }
 
         resourceCounts = new HashMap<Resource, Integer>();
         tagCounts = new HashMap<Tag, Integer>();
