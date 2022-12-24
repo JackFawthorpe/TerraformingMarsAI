@@ -23,9 +23,9 @@ public class CardManager {
      */
     List<BaseCard> mainDeck;
 
-    public CardManager(GlobalRequirements gr) {
+    public CardManager(GlobalRequirements gr, boolean base, boolean corp, boolean prel) {
         globalRequirementsRef = gr;
-        mainDeck = generateDeck(true, true, true, this);
+        mainDeck = generateDeck(base, corp, prel, this);
     }
 
     /**
