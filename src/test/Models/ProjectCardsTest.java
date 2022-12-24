@@ -1,13 +1,11 @@
 package test.Models;
 
-import main.Enums.DLC;
 import main.Enums.Resource;
 import main.Enums.Tag;
 import main.Managers.CardManager;
 import main.Models.BaseCard;
 import main.Models.GlobalRequirements;
 import main.Models.Player;
-import main.Models.ProjectCards.InvestmentLoanCard;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -79,6 +77,32 @@ public class ProjectCardsTest {
                 assertEquals(predictedCost, player.getResourceCount(Resource.CREDITS));
             }
         } catch (Exception e) {fail();}
+    }
+
+    @ParameterizedTest
+    @MethodSource ("generateAllCards")
+    void allCardsGainTheRightAmountOfTags(BaseCard card) {
+        int tagCount = card.getTags().size();
+        Player player = new Player();
+        for (Resource resource : Resource.values()) {
+            player.changeResourceCount(resource, 100);
+        }
+        for (Tag tag : Tag.values()) {
+            for (int i = 0; i < 10; i++) {
+                player.addTag(tag);
+            }
+        }
+        int predictedTagCount = Tag.values().length * 10 + tagCount;
+        card.setOwner(player);
+        try {
+            card.runImmediateEffect();
+            int exactCount = 0;
+            for (Tag tag : Tag.values()) {
+                exactCount += player.getTagCount(tag, false);
+            }
+            assertEquals(predictedTagCount, exactCount);
+        } catch (Exception e) {fail();}
+
     }
 
     @Test

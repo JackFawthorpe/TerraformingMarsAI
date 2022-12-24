@@ -48,14 +48,20 @@ public class CardManager {
     public static List<BaseCard> generateDeck(boolean base, boolean corporate, boolean prelude, CardManager manager) {
         List<BaseCard> deck = new ArrayList<BaseCard>();
         if (base) {
+            deck.add(new AsteroidMiningCard(manager));
             deck.add(new BreathingFiltersCard(manager));
+            deck.add(new FarmingCard(manager));
+            deck.add(new FoodFactoryCard(manager));
             deck.add(new LunarBeamCard(manager));
+            deck.add(new SolarPowerCard(manager));
+            deck.add(new SolettaCard(manager));
             deck.add(new StripMineCard(manager));
         }
 
         if (corporate) {
             deck.add(new AcquiredCompanyCard(manager));
             deck.add(new BribedCommitteeCard(manager));
+            deck.add(new BuildingIndustriesCard(manager));
             deck.add(new FuelFactoryCard(manager));
             deck.add(new InvestmentLoanCard(manager));
             deck.add(new MineralDepositCard(manager));
