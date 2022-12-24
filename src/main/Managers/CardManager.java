@@ -55,6 +55,7 @@ public class CardManager {
             deck.add(new GrassCard(manager));
             deck.add(new ImportOfAdvancedGHGCard(manager));
             deck.add(new LunarBeamCard(manager));
+            deck.add(new PowerGridCard(manager));
             deck.add(new SolarPowerCard(manager));
             deck.add(new SolettaCard(manager));
             deck.add(new StripMineCard(manager));
@@ -66,7 +67,9 @@ public class CardManager {
             deck.add(new BuildingIndustriesCard(manager));
             deck.add(new FuelFactoryCard(manager));
             deck.add(new InvestmentLoanCard(manager));
+            deck.add(new MedicalLabCard(manager));
             deck.add(new MineralDepositCard(manager));
+            deck.add(new MirandaResortCard(manager));
             deck.add(new SatellitesCard(manager));
             deck.add(new SponsorsCard(manager));
             deck.add(new TitaniumMineCard(manager));
