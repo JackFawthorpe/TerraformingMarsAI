@@ -53,6 +53,7 @@ public class CardManager {
             deck.add(new FarmingCard(manager));
             deck.add(new FoodFactoryCard(manager));
             deck.add(new GrassCard(manager));
+            deck.add(new ImportOfAdvancedGHGCard(manager));
             deck.add(new LunarBeamCard(manager));
             deck.add(new SolarPowerCard(manager));
             deck.add(new SolettaCard(manager));
