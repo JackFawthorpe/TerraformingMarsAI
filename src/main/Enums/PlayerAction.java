@@ -13,6 +13,7 @@ package main.Enums;
  */
 public enum PlayerAction {
     PC_ACQUIRED_COMPANY,
+    PC_ASTEROID_MINING,
     PC_BREATHING_FILTERS,
     PC_BRIBED_COMMITTEE,
     PC_BUILDING_INDUSTRIES,
