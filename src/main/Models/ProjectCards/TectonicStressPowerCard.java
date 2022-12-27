@@ -1,6 +1,7 @@
 package main.Models.ProjectCards;
 
 import main.Enums.DLC;
+import main.Enums.PlayerAction;
 import main.Enums.Resource;
 import main.Enums.Tag;
 import main.Exceptions.InvalidPlayerTransactionException;
@@ -20,6 +21,7 @@ public class TectonicStressPowerCard extends BaseCard {
         cost = 18;
         dlc = DLC.BASE;
         tags = new ArrayList<>(Arrays.asList(Tag.POWER, Tag.BUILDING));
+        playCardAction = PlayerAction.PC_TECTONIC_STRESS_POWER;
     }
 
     @Override

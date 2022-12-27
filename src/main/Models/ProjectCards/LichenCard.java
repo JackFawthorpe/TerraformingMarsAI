@@ -1,6 +1,7 @@
 package main.Models.ProjectCards;
 
 import main.Enums.DLC;
+import main.Enums.PlayerAction;
 import main.Enums.Resource;
 import main.Enums.Tag;
 import main.Exceptions.InvalidPlayerTransactionException;
@@ -18,6 +19,7 @@ public class LichenCard extends BaseCard {
         cost = 7;
         dlc = DLC.BASE;
         tags = new ArrayList<Tag>(Arrays.asList(Tag.PLANT));
+        playCardAction = PlayerAction.PC_LICHEN;
     }
 
     @Override

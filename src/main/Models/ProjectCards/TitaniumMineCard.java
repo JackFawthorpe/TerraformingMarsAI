@@ -1,6 +1,7 @@
 package main.Models.ProjectCards;
 
 import main.Enums.DLC;
+import main.Enums.PlayerAction;
 import main.Enums.Resource;
 import main.Enums.Tag;
 import main.Exceptions.InvalidPlayerTransactionException;
@@ -18,6 +19,7 @@ public class TitaniumMineCard extends BaseCard {
         cost = 7;
         dlc = DLC.CORPORATE;
         this.tags = new ArrayList<>(Arrays.asList(Tag.BUILDING));
+        playCardAction = PlayerAction.PC_TITANIUM_MINES;
     }
 
     @Override

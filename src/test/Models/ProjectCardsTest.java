@@ -19,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class ProjectCardsTest {
 
     private static List<BaseCard> generateAllCards() {
-        CardManager cm = new CardManager(new GlobalRequirements());
+        CardManager cm = new CardManager(new GlobalRequirements(), true, true, true);
         return cm.getMainDeck();
     }
 
@@ -55,8 +55,24 @@ public class ProjectCardsTest {
 
     @ParameterizedTest
     @MethodSource ("generateAllCards")
+    void allCardsHavePlayCardAction(BaseCard card) {
+        assertNotNull(card.getPlayCardAction());
+    }
+
+    @ParameterizedTest
+    @MethodSource("generateAllCards")
+    void allCardsHaveDifferentPlayCardActions(BaseCard card) {
+        for (BaseCard second : generateAllCards()) {
+            if (!second.equals(card)) {
+                assertNotEquals(card.getPlayCardAction(), second.getPlayCardAction());
+            }
+        }
+    }
+
+    @ParameterizedTest
+    @MethodSource ("generateAllCards")
     void allCardsCostsAgreeWithAttribute(BaseCard card) {
-        Player player = new Player();
+        Player player = new Player(true);
         for (Resource resource : Resource.values()) {
             player.changeResourceCount(resource, 100);
         }
@@ -83,7 +99,7 @@ public class ProjectCardsTest {
     @MethodSource ("generateAllCards")
     void allCardsGainTheRightAmountOfTags(BaseCard card) {
         int tagCount = card.getTags().size();
-        Player player = new Player();
+        Player player = new Player(true);
         for (Resource resource : Resource.values()) {
             player.changeResourceCount(resource, 100);
         }
@@ -108,7 +124,7 @@ public class ProjectCardsTest {
     @Test
     void checkAllSubDecksMatchCards() {
 
-        CardManager cm = new CardManager(new GlobalRequirements());
+        CardManager cm = new CardManager(new GlobalRequirements(), true, true, true);
 
         List<BaseCard> mainDeck = generateAllCards();
         List<BaseCard> baseDeck = CardManager.generateDeck(true, false, false, cm);
@@ -121,18 +137,18 @@ public class ProjectCardsTest {
 
         for (BaseCard card : mainDeck) {
             switch (card.getDLC()) {
-                case BASE:
+                case BASE -> {
                     assertEquals(card.getTitle(), baseDeck.get(baseIndex).getTitle());
                     baseIndex++;
-                    break;
-                case CORPORATE:
+                }
+                case CORPORATE -> {
                     assertEquals(card.getTitle(), corporateDeck.get(corpIndex).getTitle());
                     corpIndex++;
-                    break;
-                case PRELUDE:
+                }
+                case PRELUDE -> {
                     assertEquals(card.getTitle(), preludeDeck.get(preludeIndex).getTitle());
                     preludeIndex++;
-                    break;
+                }
             }
         }
     }

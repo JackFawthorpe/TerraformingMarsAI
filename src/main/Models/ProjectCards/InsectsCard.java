@@ -1,6 +1,7 @@
 package main.Models.ProjectCards;
 
 import main.Enums.DLC;
+import main.Enums.PlayerAction;
 import main.Enums.Resource;
 import main.Enums.Tag;
 import main.Exceptions.InvalidPlayerTransactionException;
@@ -19,6 +20,7 @@ public class InsectsCard extends BaseCard {
         cost = 9;
         dlc = DLC.BASE;
         tags = new ArrayList<Tag>(Arrays.asList(Tag.MICROBE));
+        playCardAction = PlayerAction.PC_INSECTS;
     }
 
     @Override

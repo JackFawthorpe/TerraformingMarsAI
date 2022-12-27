@@ -28,6 +28,11 @@ public abstract class BaseCard {
     protected List<Tag> tags;
 
     /**
+     * The Action associated with playing the card
+     */
+    protected PlayerAction playCardAction;
+
+    /**
      * If the card has an action
      * Must be overwritten within the child class
      */
@@ -145,6 +150,10 @@ public abstract class BaseCard {
      */
     public List<PlayerAction> getPotentialActions() {
         return new ArrayList<PlayerAction>();
+    }
+
+    public PlayerAction getPlayCardAction() {
+        return playCardAction;
     }
 
     /**

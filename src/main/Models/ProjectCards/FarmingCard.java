@@ -1,6 +1,7 @@
 package main.Models.ProjectCards;
 
 import main.Enums.DLC;
+import main.Enums.PlayerAction;
 import main.Enums.Resource;
 import main.Enums.Tag;
 import main.Exceptions.InvalidPlayerTransactionException;
@@ -19,6 +20,7 @@ public class FarmingCard extends BaseCard {
         cost = 16;
         dlc = DLC.BASE;
         tags = new ArrayList<Tag>(Arrays.asList(Tag.PLANT));
+        playCardAction = PlayerAction.PC_FARMING;
     }
 
     @Override

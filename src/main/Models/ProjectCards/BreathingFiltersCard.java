@@ -1,6 +1,7 @@
 package main.Models.ProjectCards;
 
 import main.Enums.DLC;
+import main.Enums.PlayerAction;
 import main.Enums.Tag;
 import main.Exceptions.InvalidPlayerTransactionException;
 import main.Managers.CardManager;
@@ -18,6 +19,7 @@ public class BreathingFiltersCard extends BaseCard {
         tags = new ArrayList<Tag>(Arrays.asList(Tag.SCIENCE));
         cost = 11;
         dlc = DLC.BASE;
+        playCardAction = PlayerAction.PC_BREATHING_FILTERS;
     }
 
     @Override

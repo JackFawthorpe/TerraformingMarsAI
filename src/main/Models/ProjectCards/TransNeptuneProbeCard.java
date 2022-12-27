@@ -1,6 +1,7 @@
 package main.Models.ProjectCards;
 
 import main.Enums.DLC;
+import main.Enums.PlayerAction;
 import main.Enums.Tag;
 import main.Exceptions.InvalidPlayerTransactionException;
 import main.Managers.CardManager;
@@ -16,6 +17,7 @@ public class TransNeptuneProbeCard extends BaseCard {
         cost = 6;
         dlc = DLC.CORPORATE;
         tags = new ArrayList<Tag>(Arrays.asList(Tag.SCIENCE, Tag.SPACE));
+        playCardAction = PlayerAction.PC_TRANS_NEPTUNE_PROBE;
     }
 
     @Override

@@ -1,6 +1,7 @@
 package main.Models.ProjectCards;
 
 import main.Enums.DLC;
+import main.Enums.PlayerAction;
 import main.Enums.Resource;
 import main.Enums.Tag;
 import main.Exceptions.InvalidPlayerTransactionException;
@@ -18,6 +19,7 @@ public class InvestmentLoanCard extends BaseCard {
         dlc = DLC.CORPORATE;
         cost = 3;
         tags = new ArrayList<Tag>(Arrays.asList(Tag.EARTH, Tag.EVENT));
+        playCardAction = PlayerAction.PC_INVESTMENT_LOAN;
     }
     @Override
     public boolean canPlayCard(){ return super.canPlayCard(); }

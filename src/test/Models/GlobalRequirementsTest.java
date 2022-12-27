@@ -12,7 +12,7 @@ public class GlobalRequirementsTest {
     @Test
     public void oxygenCantPassMaxTest() {
         GlobalRequirements reqs = new GlobalRequirements();
-        Player player = new Player();
+        Player player = new Player(true);
         for (int i = 0; i < 14; i++) {
             reqs.incrementOxygen(player);
         }

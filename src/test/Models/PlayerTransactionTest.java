@@ -16,7 +16,7 @@ public class PlayerTransactionTest {
 
     @BeforeEach
     public void loadData() {
-        player = new Player();
+        player = new Player(true);
         pt = new PlayerTransaction(player, "test");
     }
 

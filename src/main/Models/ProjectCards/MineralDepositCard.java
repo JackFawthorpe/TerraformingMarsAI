@@ -1,6 +1,7 @@
 package main.Models.ProjectCards;
 
 import main.Enums.DLC;
+import main.Enums.PlayerAction;
 import main.Enums.Resource;
 import main.Enums.Tag;
 import main.Exceptions.InvalidPlayerTransactionException;
@@ -19,6 +20,7 @@ public class MineralDepositCard extends BaseCard {
         dlc = DLC.CORPORATE;
         cost = 5;
         tags = new ArrayList<Tag>(Arrays.asList(Tag.EVENT));
+        playCardAction = PlayerAction.PC_MINERAL_DEPOSIT;
     }
 
     @Override

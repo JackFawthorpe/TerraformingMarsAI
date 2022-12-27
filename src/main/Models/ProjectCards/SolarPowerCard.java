@@ -1,6 +1,7 @@
 package main.Models.ProjectCards;
 
 import main.Enums.DLC;
+import main.Enums.PlayerAction;
 import main.Enums.Resource;
 import main.Enums.Tag;
 import main.Exceptions.InvalidPlayerTransactionException;
@@ -18,6 +19,7 @@ public class SolarPowerCard extends BaseCard {
         dlc = DLC.BASE;
         cost = 11;
         tags = new ArrayList<Tag>(Arrays.asList(Tag.POWER, Tag.BUILDING));
+        playCardAction = PlayerAction.PC_SOLAR_POWER;
     }
 
     @Override

@@ -1,6 +1,7 @@
 package main.Models.ProjectCards;
 
 import main.Enums.DLC;
+import main.Enums.PlayerAction;
 import main.Enums.Resource;
 import main.Enums.Tag;
 import main.Exceptions.InvalidPlayerTransactionException;
@@ -18,6 +19,7 @@ public class AcquiredCompanyCard extends BaseCard {
         dlc = DLC.CORPORATE;
         cost = 10;
         tags = new ArrayList<Tag>(Arrays.asList(Tag.EARTH));
+        playCardAction = PlayerAction.PC_ACQUIRED_COMPANY;
     }
 
     @Override

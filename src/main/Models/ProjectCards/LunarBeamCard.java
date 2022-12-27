@@ -1,6 +1,7 @@
 package main.Models.ProjectCards;
 
 import main.Enums.DLC;
+import main.Enums.PlayerAction;
 import main.Enums.Resource;
 import main.Enums.Tag;
 import main.Exceptions.InvalidPlayerTransactionException;
@@ -18,6 +19,7 @@ public class LunarBeamCard extends BaseCard {
         cost = 13;
         dlc = DLC.BASE;
         this.tags = new ArrayList<Tag>(Arrays.asList(Tag.EARTH, Tag.POWER));
+        playCardAction = PlayerAction.PC_LUNAR_BEAM;
     }
 
 

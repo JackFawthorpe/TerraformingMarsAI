@@ -1,6 +1,7 @@
 package main.Models.ProjectCards;
 
 import main.Enums.DLC;
+import main.Enums.PlayerAction;
 import main.Enums.Resource;
 import main.Enums.Tag;
 import main.Exceptions.InvalidPlayerTransactionException;
@@ -19,6 +20,7 @@ public class GeneRepairCard extends BaseCard {
         cost = 12;
         dlc = DLC.CORPORATE;
         tags = new ArrayList<Tag>(Arrays.asList(Tag.SCIENCE));
+        playCardAction = PlayerAction.PC_GENE_REPAIR;
     }
 
     @Override

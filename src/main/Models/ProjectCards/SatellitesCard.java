@@ -1,6 +1,7 @@
 package main.Models.ProjectCards;
 
 import main.Enums.DLC;
+import main.Enums.PlayerAction;
 import main.Enums.Resource;
 import main.Enums.Tag;
 import main.Exceptions.InvalidPlayerTransactionException;
@@ -18,6 +19,7 @@ public class SatellitesCard extends BaseCard {
         cost = 10;
         dlc = DLC.CORPORATE;
         tags = new ArrayList<Tag>(Arrays.asList(Tag.SPACE));
+        playCardAction = PlayerAction.PC_SATELLITES;
     }
 
     @Override

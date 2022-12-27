@@ -1,6 +1,7 @@
 package main.Models.ProjectCards;
 
 import main.Enums.DLC;
+import main.Enums.PlayerAction;
 import main.Enums.Resource;
 import main.Enums.Tag;
 import main.Exceptions.InvalidPlayerTransactionException;
@@ -19,6 +20,7 @@ public class CartelCard extends BaseCard {
         tags = new ArrayList<>(Arrays.asList(Tag.EARTH));
         title = "Cartel";
         dlc = DLC.CORPORATE;
+        playCardAction = PlayerAction.PC_CARTEL;
     }
 
     @Override
