@@ -58,6 +58,7 @@ public class CardManager {
             deck.add(new InsectsCard(manager));
             deck.add(new LichenCard(manager));
             deck.add(new LunarBeamCard(manager));
+            deck.add(new MethaneFromTitanCard(manager));
             deck.add(new PowerGridCard(manager));
             deck.add(new PowerPlantCard(manager));
             deck.add(new SolarPowerCard(manager));

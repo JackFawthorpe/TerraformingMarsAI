@@ -30,6 +30,7 @@ public enum PlayerAction {
     PC_LICHEN,
     PC_LUNAR_BEAM,
     PC_MEDICAL_LAB,
+    PC_METHANE_FROM_TITAN,
     PC_MINERAL_DEPOSIT,
     PC_MIRANDA_RESORT,
     PC_POWER_GRID,
