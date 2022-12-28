@@ -1,9 +1,13 @@
 package main.Models;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
+import main.Enums.PlayerAction;
 import main.Enums.Tag;
 import main.Enums.Resource;
+import main.Exceptions.InvalidPlayerTransactionException;
 import main.PlayerControl.AIController;
 import main.PlayerControl.HumanController;
 import main.PlayerControl.PlayerController;
@@ -25,6 +29,8 @@ public class Player {
     private HashMap<Tag, Integer> tagCounts;
 
     PlayerController controller;
+
+    private boolean hasPassed;
 
     /**
      * Default constructor for player
@@ -49,6 +55,12 @@ public class Player {
         for (Tag tag: tags) {
             tagCounts.put(tag, 0);
         }
+
+        hasPassed = false;
+    }
+
+    public boolean getHasPassed() {
+        return hasPassed;
     }
 
     /**
@@ -84,6 +96,30 @@ public class Player {
      */
     public void changeResourceCount(Resource resource, int change) {
         resourceCounts.replace(resource, resourceCounts.get(resource) + change);
+    }
+
+    public void runTurn() {
+        // Generate possible actions
+        List<PlayerAction> potentialActions = new ArrayList<PlayerAction>();
+        // Query controller
+        controller.pickAction(potentialActions);
+
+        // Run Action
+    }
+
+    public void runProduction() {
+        PlayerTransaction pt = new PlayerTransaction(this, "Production");
+        pt.addResource(Resource.CREDITS, this.getResourceCount(Resource.CREDIT_PRODUCTION) + this.getResourceCount(Resource.TERRAFORMING_RATING));
+        pt.addResource(Resource.STEEL, this.getResourceCount(Resource.STEEL_PRODUCTION));
+        pt.addResource(Resource.TITANIUM, this.getResourceCount(Resource.TITANIUM_PRODUCTION));
+        pt.addResource(Resource.PLANTS, this.getResourceCount(Resource.PLANT_PRODUCTION));
+        pt.addResource(Resource.HEAT, this.getResourceCount(Resource.ENERGY) + this.getResourceCount(Resource.HEAT_PRODUCTION));
+        pt.addResource(Resource.ENERGY, -this.getResourceCount(Resource.ENERGY) + this.getResourceCount(Resource.ENERGY_PRODUCTION));
+        try {
+            pt.execute();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }

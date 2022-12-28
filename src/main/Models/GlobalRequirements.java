@@ -24,6 +24,10 @@ public class GlobalRequirements {
         this.oxygen = 0;
     }
 
+    public boolean gameFinished() {
+        return temperature == 8 && oxygen == 14;
+    }
+
     public int getTemperature() {
         return this.temperature;
     }

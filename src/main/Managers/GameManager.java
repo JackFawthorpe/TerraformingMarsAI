@@ -16,7 +16,11 @@ public class GameManager {
         playerManager = new PlayerManager(3, headless);
         boardManager = new BoardManager();
         generation = 1;
-
+        while (!globalRequirements.gameFinished()) {
+            // Draw Cards
+            playerManager.playTurns();
+            playerManager.playProduction();
+        }
     }
 
 }

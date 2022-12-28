@@ -44,5 +44,6 @@ public enum PlayerAction {
     PC_TITANIUM_MINES,
     PC_TRANS_NEPTUNE_PROBE,
     PC_VESTA_SHIPYARD,
-    PC_WORMS
+    PC_WORMS,
+    PA_PASS
 }
