@@ -5,6 +5,8 @@ import main.Models.GlobalRequirements;
 import main.Models.ProjectCards.*;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -23,9 +25,15 @@ public class CardManager {
      */
     List<BaseCard> mainDeck;
 
-    public CardManager(GlobalRequirements gr, boolean base, boolean corp, boolean prel) {
+    List<BaseCard> discardDeck;
+
+    public CardManager(GlobalRequirements gr, boolean base, boolean corp, boolean prel, boolean testing) {
         globalRequirementsRef = gr;
         mainDeck = generateDeck(base, corp, prel, this);
+        if (!testing) {
+            Collections.shuffle(mainDeck);
+        }
+        discardDeck = new ArrayList<BaseCard>();
     }
 
     /**
@@ -91,6 +99,20 @@ public class CardManager {
         }
 
         return deck;
+    }
+
+    public List<BaseCard> drawCards(int cardCount) {
+        if (mainDeck.size() < cardCount) {
+            Collections.shuffle(discardDeck);
+            discardDeck.addAll(mainDeck);
+            mainDeck = discardDeck;
+        }
+        ArrayList<BaseCard> returnDeck = new ArrayList<BaseCard>();
+        for (int i = 0; i < cardCount; i++) {
+            returnDeck.add(mainDeck.get(mainDeck.size() - 1 - i));
+        }
+        mainDeck = mainDeck.subList(0, mainDeck.size() - cardCount);
+        return returnDeck;
     }
 
 }

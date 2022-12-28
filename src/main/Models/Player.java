@@ -7,7 +7,6 @@ import java.util.List;
 import main.Enums.PlayerAction;
 import main.Enums.Tag;
 import main.Enums.Resource;
-import main.Exceptions.InvalidPlayerTransactionException;
 import main.PlayerControl.AIController;
 import main.PlayerControl.HumanController;
 import main.PlayerControl.PlayerController;
@@ -101,6 +100,15 @@ public class Player {
     public void runTurn() {
         // Generate possible actions
         List<PlayerAction> potentialActions = new ArrayList<PlayerAction>();
+
+        //PC
+        //SP
+        //CM
+        //FA
+        //UA
+        //CR
+        //PA
+
         // Query controller
         controller.pickAction(potentialActions);
 

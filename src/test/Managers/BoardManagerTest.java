@@ -3,9 +3,7 @@ package test.Managers;
 import main.Managers.BoardManager;
 import main.Models.Tile;
 import org.junit.jupiter.api.Test;
-
 import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class BoardManagerTest {

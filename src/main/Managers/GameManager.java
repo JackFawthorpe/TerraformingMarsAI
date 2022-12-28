@@ -12,7 +12,7 @@ public class GameManager {
 
     public GameManager(boolean headless) {
         globalRequirements = new GlobalRequirements();
-        cardManager = new CardManager(globalRequirements, true, true, true);
+        cardManager = new CardManager(globalRequirements, true, true, true, false);
         playerManager = new PlayerManager(3, headless);
         boardManager = new BoardManager();
         generation = 1;

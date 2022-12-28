@@ -19,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class ProjectCardsTest {
 
     private static List<BaseCard> generateAllCards() {
-        CardManager cm = new CardManager(new GlobalRequirements(), true, true, true);
+        CardManager cm = new CardManager(new GlobalRequirements(), true, true, true, true);
         return cm.getMainDeck();
     }
 
@@ -124,7 +124,7 @@ public class ProjectCardsTest {
     @Test
     void checkAllSubDecksMatchCards() {
 
-        CardManager cm = new CardManager(new GlobalRequirements(), true, true, true);
+        CardManager cm = new CardManager(new GlobalRequirements(), true, true, true, true);
 
         List<BaseCard> mainDeck = generateAllCards();
         List<BaseCard> baseDeck = CardManager.generateDeck(true, false, false, cm);
